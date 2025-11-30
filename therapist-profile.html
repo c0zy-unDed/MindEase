@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Therapist Profile — CalmQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Quicksand',sans-serif;background:#f4fbfd;margin:0;color:#122}
+    .wrap{max-width:900px;margin:2rem auto;padding:1rem}
+    .profile{display:flex;gap:1rem;align-items:flex-start;background:#fff;padding:1rem;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    .profile img{width:320px;border-radius:10px;object-fit:cover}
+    .meta h2{margin-top:0}
+    .btn{background:#4fc3f7;border:none;color:#fff;padding:.6rem 1rem;border-radius:20px;cursor:pointer;margin:.4rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="therapists.html">← Back to therapists</a>
+    <div id="profile" class="profile" role="article" aria-labelledby="pname">
+      <img id="pimg" src="https://via.placeholder.com/320x220" alt="">
+      <div class="meta">
+        <h2 id="pname">Therapist Name</h2>
+        <p id="pinfo">Details</p>
+        <p id="pdesc">Longer biography and specialties will appear here.</p>
+        <div>
+          <button class="btn" id="bookBtn">Book Appointment</button>
+          <button class="btn" onclick="openSalesIQ()">Chat with assistant</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const db = {
+      1:{name:"Dr. Anita Sharma",img:"https://via.placeholder.com/600x400?text=Dr.+Anita+Sharma",info:"Clinical Psychologist • 10+ yrs • Anxiety & Stress",desc:"Dr. Anita uses evidence-based CBT and compassion-focused therapy to help with anxiety, panic and stress."},
+      2:{name:"Dr. Rahul Mehta",img:"https://via.placeholder.com/600x400?text=Dr.+Rahul+Mehta",info:"Psychotherapist • 8+ yrs • Depression",desc:"Rahul focuses on mood regulation, behavioral activation and collaborative care."},
+      3:{name:"Dr. Priya Nair",img:"https://via.placeholder.com/600x400?text=Dr.+Priya+Nair",info:"Couples & Family Therapist • 7+ yrs",desc:"Priya helps couples with communication, trust-building and conflict resolution."},
+      4:{name:"Ananya Rao",img:"https://via.placeholder.com/600x400?text=Ananya+Rao",info:"Counsellor • 5+ yrs • General wellbeing",desc:"Ananya provides supportive counseling for life stressors and personal growth."}
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || '1';
+    const t = db[id] || db[1];
+
+    document.getElementById('pname').innerText = t.name;
+    document.getElementById('pimg').src = t.img;
+    document.getElementById('pinfo').innerText = t.info;
+    document.getElementById('pdesc').innerText = t.desc;
+    document.getElementById('bookBtn').addEventListener('click', ()=> {
+      location.href = 'booking.html?tid=' + id;
+    });
+
+    function openSalesIQ(){
+      try{
+        if ($zoho && $zoho.salesiq && $zoho.salesiq.floatbutton){
+          $zoho.salesiq.floatbutton.visible("show");
+          if($zoho.salesiq.chat && $zoho.salesiq.chat.start) $zoho.salesiq.chat.start();
+        }
+      } catch(e){console.log(e)}
+    }
+  </script>
+</body>
+</html>

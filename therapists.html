@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Find a Therapist — MindEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Quicksand',sans-serif;background:#eaf9fb;margin:0;color:#122}
+    header{padding:1rem;text-align:center;background:#fff}
+    .grid{max-width:1100px;margin:1.5rem auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;padding:0 1rem}
+    .card{background:#fff;border-radius:12px;padding:1rem;box-shadow:0 6px 18px rgba(0,0,0,.06);display:flex;flex-direction:column;align-items:center}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+    .btn{background:#4fc3f7;border:none;color:#fff;padding:.7rem 1rem;border-radius:20px;cursor:pointer;margin:.4rem}
+    nav{margin-top:.5rem}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Therapists</h1>
+    <p>Choose someone who feels right for you — click View Profile to learn more.</p>
+    <nav><a href="index.html">Home</a> | <a href="booking.html">Book</a></nav>
+  </header>
+
+  <section class="grid" aria-label="therapist-list">
+    <!-- Therapist 1 -->
+    <article class="card">
+      <img src="https://via.placeholder.com/600x400?text=Dr.+Anita+Sharma" alt="Dr Anita Sharma">
+      <h3>Dr. Anita Sharma</h3>
+      <p>Clinical Psychologist • 10+ years • Anxiety & Stress</p>
+      <div>
+        <button class="btn" onclick="location.href='therapist-profile.html?id=1'">View Profile</button>
+        <button class="btn" onclick="location.href='booking.html?tid=1'">Book Session</button>
+      </div>
+    </article>
+
+    <!-- Therapist 2 -->
+    <article class="card">
+      <img src="https://via.placeholder.com/600x400?text=Dr.+Rahul+Mehta" alt="Dr Rahul Mehta">
+      <h3>Dr. Rahul Mehta</h3>
+      <p>Psychotherapist • 8+ years • Depression & Mood</p>
+      <div>
+        <button class="btn" onclick="location.href='therapist-profile.html?id=2'">View Profile</button>
+        <button class="btn" onclick="location.href='booking.html?tid=2'">Book Session</button>
+      </div>
+    </article>
+
+    <!-- Therapist 3 -->
+    <article class="card">
+      <img src="https://via.placeholder.com/600x400?text=Dr.+Priya+Nair" alt="Dr Priya Nair">
+      <h3>Dr. Priya Nair</h3>
+      <p>Couples & Family Therapist • 7+ years</p>
+      <div>
+        <button class="btn" onclick="location.href='therapist-profile.html?id=3'">View Profile</button>
+        <button class="btn" onclick="location.href='booking.html?tid=3'">Book Session</button>
+      </div>
+    </article>
+
+    <!-- Therapist 4 -->
+    <article class="card">
+      <img src="https://via.placeholder.com/600x400?text=Ananya+Rao" alt="Ananya Rao">
+      <h3>Ananya Rao</h3>
+      <p>Counsellor • 5+ years • General Counselling</p>
+      <div>
+        <button class="btn" onclick="location.href='therapist-profile.html?id=4'">View Profile</button>
+        <button class="btn" onclick="location.href='booking.html?tid=4'">Book Session</button>
+      </div>
+    </article>
+  </section>
+
+  <footer style="text-align:center;padding:1rem">MindEase • Confidential support</footer>
+</body>
+</html>

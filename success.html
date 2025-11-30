@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Booking Confirmed — MindEase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+  <style> body{font-family:'Quicksand',sans-serif;background:#eafafc;margin:0;color:#122} .wrap{max-width:800px;margin:3rem auto;padding:1rem;text-align:center} .card{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.06)} .btn{background:#4fc3f7;color:#fff;padding:.6rem 1rem;border-radius:18px;border:none;cursor:pointer;margin-top:1rem} </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="confirm">
+      <h2>Thanks — your booking request has been received</h2>
+      <p id="summary">One moment while we prepare confirmation...</p>
+      <button class="btn" onclick="location.href='index.html'">Back to Home</button>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const tmap = {1:"Dr. Anita Sharma",2:"Dr. Rahul Mehta",3:"Dr. Priya Nair",4:"Ananya Rao"};
+    const therapist = tmap[params.get('therapist')] || 'Selected therapist';
+    const name = params.get('name') || '';
+    const email = params.get('email') || '';
+    const date = params.get('date') || '';
+    const time = params.get('time') || '';
+    const phone = params.get('phone') || '';
+    document.getElementById('summary').innerHTML = `
+      <strong>${therapist}</strong><br>
+      Name: ${name}<br>
+      Email: ${email}<br>
+      Phone: ${phone}<br>
+      Date: ${date} Time: ${time}<br><br>
+      A confirmation email would be sent in a real system. For this demo, this page serves as confirmation.
+    `;
+  </script>
+</body>
+</html>
